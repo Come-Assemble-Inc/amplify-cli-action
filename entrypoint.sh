@@ -83,6 +83,10 @@ case $5 in
     \"envName\":\"$6\"\
     }"
 
+    AUTHCONFIG="{\
+    \"googleClientId\":\"$AMPLIFY_GOOGLE_CLIENT_ID\",\
+    }"
+
     AWSCLOUDFORMATIONCONFIG="{\
     \"configLevel\":\"project\",\
     \"useProfile\":false,\
@@ -94,8 +98,12 @@ case $5 in
     PROVIDERS="{\
     \"awscloudformation\":$AWSCLOUDFORMATIONCONFIG\
     }"
+    
+    CATEGORIES="{\
+    \"auth\":$AUTHCONFIG\
+    }"
 
-    amplify env add $9 --amplify "$AMPLIFY" --providers "$PROVIDERS" --yes
+    amplify env add $9 --amplify "$AMPLIFY" --providers "$PROVIDERS" --categories "$CATEGORIES" --yes
     amplify status
     ;;
 
