@@ -50,6 +50,10 @@ case $5 in
     amplify push $9 --yes
     ;;
 
+  push_destroy_schema)
+    amplify push $9 --yes --allow-destructive-graphql-schema-updates
+    ;;
+
   publish)
     amplify publish $9 --yes
     ;;
@@ -98,7 +102,7 @@ case $5 in
     PROVIDERS="{\
     \"awscloudformation\":$AWSCLOUDFORMATIONCONFIG\
     }"
-    
+
     CATEGORIES="{\
     \"auth\":$AUTHCONFIG\
     }"
